@@ -18,7 +18,7 @@ body {
 
 .main-container {
   width: 100%;
-  max-width: 650px;
+  max-width: 600px;
   text-align: center;
 }
 
@@ -26,20 +26,17 @@ body {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(15px);
   border: 1.5px solid rgba(255, 105, 180, 0.3);
-  padding: 40px 25px;
+  padding: 35px 25px;
   border-radius: 24px;
   box-shadow: 0 0 35px rgba(236, 72, 153, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.2);
-  transition: all 0.5s ease-in-out;
 }
 
-.hidden {
-  display: none !important;
-}
+.hidden { display: none !important; }
 
 .glow-title {
   color: #ff9ecd;
-  font-size: 1.8rem;
-  text-shadow: 0 0 15px #ec4899, 0 0 25px #a855f7;
+  font-size: 1.6rem;
+  text-shadow: 0 0 15px #ec4899;
   margin-bottom: 20px;
 }
 
@@ -56,169 +53,167 @@ body {
   100% { transform: scale(1.1); }
 }
 
-.cake-container {
+/* Dynamic Aesthetic Cake */
+.cake-box {
   position: relative;
-  width: 150px;
-  height: 140px;
+  width: 200px;
+  height: 160px;
   margin: 40px auto 20px auto;
   cursor: pointer;
 }
 
-.cake {
+.cake-plate {
+  width: 230px;
+  height: 14px;
+  background: #e2e8f0;
+  border-radius: 10px;
   position: absolute;
   bottom: 0;
-  width: 150px;
-  height: 90px;
-  background: #ff85a2;
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0 0 20px #ec4899;
+  left: -15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-.layer-top {
-  height: 30px;
-  background: #a855f7;
-  border-radius: 10px 10px 0 0;
-}
-
-.layer-middle {
-  height: 30px;
+.cake-bottom {
+  width: 200px;
+  height: 50px;
   background: #f472b6;
+  position: absolute;
+  bottom: 14px;
+  border-radius: 5px 5px 0 0;
 }
 
-.candle {
+.cake-middle {
+  width: 180px;
+  height: 45px;
+  background: #ec4899;
   position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 64px;
+  left: 10px;
+}
+
+.cake-top {
+  width: 160px;
+  height: 40px;
+  background: #ffb6c1;
+  position: absolute;
+  bottom: 109px;
+  left: 20px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 5px;
+}
+
+.cherry { font-size: 1.2rem; }
+
+/* Candle & Flame */
+.candle {
   width: 12px;
   height: 35px;
-  background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ec4899 5px, #ec4899 10px);
+  background: repeating-linear-gradient(45deg, #fff, #fff 5px, #a855f7 5px, #a855f7 10px);
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 3px;
-  z-index: 2;
+  z-index: 5;
 }
 
 .flame {
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 14px;
-  height: 20px;
+  height: 22px;
   background: #ffb703;
   border-radius: 50% 50% 20% 20%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
   box-shadow: 0 0 15px #ffb703, 0 0 25px #fb8500;
-  animation: flicker 0.6s infinite alternate;
+  animation: flicker 0.5s infinite alternate;
 }
 
 @keyframes flicker {
   0% { opacity: 1; transform: translateX(-50%) scale(1); }
-  100% { opacity: 0.8; transform: translateX(-50%) scale(1.15); }
+  100% { opacity: 0.8; transform: translateX(-50%) scale(1.2); }
 }
 
 .hint-text {
   color: #f472b6;
   font-size: 0.95rem;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
+/* Celebration Screen */
 .hbd-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 3.2rem;
+  font-size: 3rem;
   color: #ffb6c1;
-  text-shadow: 0 0 15px #ec4899, 0 0 30px #a855f7;
-  margin-bottom: 25px;
+  text-shadow: 0 0 15px #ec4899, 0 0 25px #a855f7;
+  margin-bottom: 20px;
 }
 
 .photo-frame {
-  width: 130px;
-  height: 130px;
-  margin: 0 auto 25px auto;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 15px auto;
   border-radius: 50%;
-  padding: 5px;
+  padding: 4px;
   background: linear-gradient(45deg, #ec4899, #a855f7);
   box-shadow: 0 0 25px #ec4899;
 }
 
-.photo-placeholder {
+.avatar-img {
   width: 100%;
   height: 100%;
-  background: #1e0038;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  object-fit: cover;
+  background: #fff;
 }
 
-.avatar-icon {
-  font-size: 3.2rem;
+.funny-tag {
+  background: rgba(236, 72, 153, 0.2);
+  border: 1px dashed #f472b6;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #ffccd5;
+  margin-bottom: 20px;
+  display: inline-block;
 }
 
 .love-letter {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(244, 114, 182, 0.3);
-  padding: 25px;
+  padding: 22px;
   border-radius: 16px;
   text-align: left;
-  line-height: 1.7;
+  line-height: 1.6;
   color: #fbcfe8;
-  font-size: 0.98rem;
-  box-shadow: inset 0 0 15px rgba(236, 72, 153, 0.15);
+  font-size: 0.95rem;
 }
 
-.love-letter h3 {
-  color: #ff9ecd;
-  margin-bottom: 12px;
-  font-size: 1.3rem;
-}
+.love-letter h3 { color: #ff9ecd; margin-bottom: 10px; }
+.signature { text-align: right; font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #f472b6; margin-top: 10px; }
 
-.love-letter p {
-  margin-bottom: 12px;
-}
-
-.signature {
-  text-align: right;
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.6rem;
-  color: #f472b6;
-  margin-top: 15px;
-}
-
-/* Floating Male & Female Bears */
+/* Side Floating Bears */
 .bear-floating {
   position: fixed;
   top: 50%;
-  transform: translateY(-50%);
-  font-size: 3.8rem;
+  font-size: 3.5rem;
   z-index: 10;
   filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6));
   animation: bear-float 2.5s infinite ease-in-out alternate;
 }
-
-.male-bear {
-  left: 25px;
-}
-
-.female-bear {
-  right: 25px;
-}
+.male-bear { left: 20px; }
+.female-bear { right: 20px; }
 
 @keyframes bear-float {
-  0% { transform: translateY(-50%) translateY(0px) rotate(-3deg); }
-  100% { transform: translateY(-50%) translateY(-15px) rotate(3deg); }
+  0% { transform: translateY(-50%) rotate(-3deg); }
+  100% { transform: translateY(-60%) rotate(3deg); }
 }
 
 @media (max-width: 600px) {
-  .bear-floating {
-    font-size: 2.5rem;
-    top: 20px;
-    transform: none;
-    animation: bear-float-mobile 2s infinite ease-in-out alternate;
-  }
-  .male-bear { left: 15px; }
-  .female-bear { right: 15px; }
-
-  @keyframes bear-float-mobile {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-8px); }
-  }
+  .bear-floating { font-size: 2.3rem; top: 15px; transform: none; }
+  .male-bear { left: 10px; }
+  .female-bear { right: 10px; }
 }
