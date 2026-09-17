@@ -1,41 +1,55 @@
-// Love Counter Logic (এখানে আপনাদের রিলেশনশিপের ডেট দিতে পারেন)
-const startDate = new Date("2024-01-01T00:00:00"); 
+let count = 10;
+const countdownEl = document.getElementById("countdown");
+const timerSection = document.getElementById("timer-section");
+const cakeSection = document.getElementById("cake-section");
+const celebrationSection = document.getElementById("celebration-section");
+const candle = document.getElementById("candle");
+const flame = document.getElementById("flame");
 
-function updateTimer() {
-  const now = new Date();
-  const diff = now - startDate;
+// 1. Start 10-Second Countdown
+const timerInterval = setInterval(() => {
+  count--;
+  countdownEl.innerText = count;
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const mins = Math.floor((diff / 1000 / 60) % 60);
-  const secs = Math.floor((diff / 1000) % 60);
+  if (count === 0) {
+    clearInterval(timerInterval);
+    timerSection.classList.add("hidden");
+    cakeSection.classList.remove("hidden");
+    
+    triggerFireworks();
+  }
+}, 1000);
 
-  document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-  document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-  document.getElementById("mins").innerText = mins < 10 ? "0" + mins : mins;
-  document.getElementById("secs").innerText = secs < 10 ? "0" + secs : secs;
+// 2. Fireworks Function using Confetti Library
+function triggerFireworks() {
+  const duration = 3 * 1000;
+  const animationEnd = Date.now() + duration;
+  const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 999 };
+
+  function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  const interval = setInterval(function() {
+    const timeLeft = animationEnd - Date.now();
+    if (timeLeft <= 0) {
+      return clearInterval(interval);
+    }
+    const particleCount = 50 * (timeLeft / duration);
+    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+  }, 250);
 }
 
-setInterval(updateTimer, 1000);
-updateTimer();
+// 3. Blow Out Candle Action
+candle.addEventListener("click", blowCandle);
 
-// Gift Popup Logic
-const giftBtn = document.getElementById("giftBtn");
-const popup = document.getElementById("popup");
-const closeBtn = document.getElementById("closeBtn");
+function blowCandle() {
+  flame.style.display = "none";
+  triggerFireworks();
 
-giftBtn.addEventListener("click", () => {
-  popup.classList.remove("hidden");
-});
-
-closeBtn.addEventListener("click", () => {
-  popup.classList.add("hidden");
-});
-
-// Play Button Dynamic Animation Toggle
-const playBtn = document.getElementById("playBtn");
-let isPlaying = false;
-playBtn.addEventListener("click", () => {
-  isPlaying = !isPlaying;
-  playBtn.innerText = isPlaying ? "⏸" : "▶";
-});
+  setTimeout(() => {
+    cakeSection.classList.add("hidden");
+    celebrationSection.classList.remove("hidden");
+  }, 1000);
+}

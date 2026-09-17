@@ -1,55 +1,73 @@
-<div class="stars"></div>
-<div class="container">
-  <!-- Top Title -->
-  <h1 class="main-title">Happy Birthday, My Princess! 💖👑</h1>
-  <p class="subtitle">To the one who makes my world magical ✨</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Tandra! 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
 
-  <!-- Main Content Layout -->
-  <div class="middle-content">
-    
-    <!-- Left Box: Love Counter -->
-    <div class="glass-box timer-box">
-      <h3>Count of Our Love Days</h3>
-      <div class="timer">
-        <div><span id="days">00</span><small>Days</small></div>
-        <div><span id="hours">00</span><small>Hours</small></div>
-        <div><span id="mins">00</span><small>Mins</small></div>
-        <div><span id="secs">00</span><small>Secs</small></div>
+  <div class="stars"></div>
+
+  <!-- Floating Male & Female Bears -->
+  <div class="bear-floating male-bear" title="Male Bear">
+    <span class="bear-emoji">🧸🎩</span>
+  </div>
+  <div class="bear-floating female-bear" title="Female Bear">
+    <span class="bear-emoji">🧸🎀</span>
+  </div>
+
+  <div class="main-container">
+
+    <!-- 1. Countdown Timer Section -->
+    <div id="timer-section" class="card">
+      <h2 class="glow-title">The Magic Begins In... ✨</h2>
+      <div id="countdown" class="countdown-timer">10</div>
+    </div>
+
+    <!-- 2. Cake & Candle Section -->
+    <div id="cake-section" class="card hidden">
+      <h2 class="glow-title">Blow Out The Candle, Tandra! 🕯️</h2>
+      <div class="cake-container" id="cake">
+        <div class="candle" id="candle">
+          <div class="flame" id="flame"></div>
+        </div>
+        <div class="cake">
+          <div class="layer layer-bottom"></div>
+          <div class="layer layer-middle"></div>
+          <div class="layer layer-top"></div>
+        </div>
+      </div>
+      <p class="hint-text">👉 Tap on the flame to blow out the candle! 👈</p>
+    </div>
+
+    <!-- 3. Celebration & Love Letter Section -->
+    <div id="celebration-section" class="card hidden">
+      <h1 class="hbd-title">🎉 Happy Birthday, Tandra! 👑✨</h1>
+      
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <span class="avatar-icon">👑💖</span>
+        </div>
+      </div>
+
+      <div class="love-letter">
+        <h3>Dearest Tandra, ❤️</h3>
+        <p>
+          On this beautiful day, I just want to remind you how deeply special you are to me. You bring so much bright color, sweetness, and happiness into my world. 
+        </p>
+        <p>
+          May your year ahead be filled with endless smiles, magic moments, beautiful dreams, and all the love your heart can hold. Happy Birthday, my love! 💕✨
+        </p>
+        <div class="signature">Forever Yours 💖</div>
       </div>
     </div>
 
-    <!-- Center Photo Frame -->
-    <div class="photo-frame">
-      <div class="glowing-border"></div>
-      <!-- আপনার এবং আপনার GF-এর ছবির ডাইরেক্ট লিংক নিচে src="..."-এ বসান -->
-      <img src="https://i.postimg.cc/mD8P4D9Z/birthday.png" alt="Love Image">
-    </div>
-
-    <!-- Right Box: Music Player -->
-    <div class="glass-box music-box">
-      <h3>Play Our Song 🎵</h3>
-      <div class="music-controls">
-        <button id="playBtn">▶</button>
-      </div>
-      <div class="wave"></div>
-    </div>
-    
   </div>
 
-  <!-- Bottom Gift Box Button -->
-  <div class="gift-section">
-    <div class="gift-box" id="giftBtn">
-      🎁
-    </div>
-    <p class="gift-text">Click to open your universe 🎁</p>
-  </div>
-</div>
-
-<!-- Surprise Popup Message -->
-<div id="popup" class="popup hidden">
-  <div class="popup-content">
-    <span class="close-btn" id="closeBtn">&times;</span>
-    <h2>My Heart Belongs To You! ❤️</h2>
-    <p>You are the most precious gift in my life. Wishing you endless love, happiness, and joy today and forever! 🥰✨</p>
-  </div>
-</div>
+  <script src="script.js"></script>
+</body>
+</html>
